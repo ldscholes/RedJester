@@ -1,5 +1,5 @@
 #!/bin/bash
-# monthly_ingstion_update_csv.sh
+# monthly_ingstion_update_json.sh
 #
 ###############################################################################################################################
 # Call Standard Profile
