@@ -8,4 +8,6 @@ wget https://files.pushshift.io/reddit/comments/daily/"$file" -P ~/redJester/dat
 
 gunzip ~/redJester/data/"$file"
 
+sha256sum "$file"
+
 hdfs dfs -put ~/redJester/data/* /apps/hive/warehouse/reddit_update/
