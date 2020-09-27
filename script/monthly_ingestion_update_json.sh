@@ -5,7 +5,7 @@
 # Call Standard Profile
 
 HIVE_CONNECTION="jdbc:hive2://DEVU0000763:10000/default;principal=hive/DEVU0000763.modeloffice.inrev.gov.uk@MODELOFFICE.INREV.GOV.UK"
-BASEDIR="/home/users/cg14915/RedJester"
+BASEDIR="~/RedJester"
 HQL_DIR=${BASEDIR}/hql
 SCRIPT_DIR=${BASEDIR}/script
 DATA_DIR=${BASEDIR}/data

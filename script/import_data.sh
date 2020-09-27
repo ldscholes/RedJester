@@ -1,11 +1,11 @@
 #!/bin/bash
 #
-echo "type file name in format: yyyy-mm-dd"
+echo "file name in format: yyyy-mm-dd"
 read file
 echo $file
 
-wget https://files.pushshift.io/reddit/comments/daily/RC_"$file".gz -P /home/users/cg14915/RedJester/data/
+wget https://files.pushshift.io/reddit/comments/daily/"$file" -P ~/redJester/data/
 
-gunzip /home/users/cg14915/RedJester/data/RC_$file".gz
+gunzip ~/redJester/data/"$file"
 
-hdfs dfs -put /home/users/cg14915/RedJester/data/* /user/hive/warehouse/reddit_update/
+hdfs dfs -put ~/redJester/data/* /apps/hive/warehouse/reddit_update/
