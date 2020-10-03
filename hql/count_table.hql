@@ -1,1 +1,1 @@
-SELECT COUNT(*) FROM reddit_update;
+SELECT COUNT(*) FROM reddit_update limit 1;

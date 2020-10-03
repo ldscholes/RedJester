@@ -1,2 +1,7 @@
 hortoworks sandbox
 qwerty1234
+
+twitter:
+apikey:Enb7szDfVTRZsTh4qJCTWwMg9
+apisecret:YgHBo5lft29qrebJlID2X0DiYQXDR7MY5iAIoNo10B3Ov89R4n
+bearertoken:AAAAAAAAAAAAAAAAAAAAAJYHIQEAAAAAUBNb4orO0z8ymHy49DzPg%2BOHr%2BA%3Dtkt8DmOSstkkYZ7ftYqaAx4johN3fhhgEkmQ1ocUSIqb94UWel

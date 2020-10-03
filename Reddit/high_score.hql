@@ -1,2 +1,1 @@
-select max(score) from reddit_comments;
-select author, body from reddit_comments where score = <value from above>;
+select body, score from reddit_comments order by score desc limit 1;
