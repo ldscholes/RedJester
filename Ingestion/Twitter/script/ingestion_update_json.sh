@@ -1,11 +1,11 @@
 #!/bin/bash
-# monthly_ingstion_update_json.sh
+# ingstion_update_json.sh
 #
 ###############################################################################################################################
 # Call Standard Profile
 
 
-BASEDIR="~/redJester/Ingestion/Reddit"
+BASEDIR="~/RedJester/Ingestion/Twitter"
 HQL_DIR=${BASEDIR}/hql
 SCRIPT_DIR=${BASEDIR}/script
 DATA_DIR=${BASEDIR}/data
