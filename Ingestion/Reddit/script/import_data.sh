@@ -8,6 +8,9 @@ wget https://files.pushshift.io/reddit/comments/daily/"$file" -P ~/redJester/Ing
 
 gunzip ~/redJester/Ingestion/Reddit/data/"$file"
 
-sha256sum "$file"
+hash=$(sha256sum ~/redJester/Ingestion/Reddit/data/"$file" | awk '{print $1}')
+size=$(wc -c ~/redJester/Ingestion/Reddit/data/"$file" | awk '{print $1}')
+
+~/redJester/Ingestion/IngestionChecker/script/ingestion_checker.sh reddit $file $size $hash
 
 hdfs dfs -put ~~/redJester/Ingestion/Reddit/data/* /apps/hive/warehouse/reddit_update/
