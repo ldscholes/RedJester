@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS google_form(
+form_timestamp DATE,
+eaten_out_less_as_a_result_of_COVID STRING,
+COVID_often_eat_out STRING,
+normal_often_eat_out STRING,
+safe_feel_eating_out_during_COVID STRING,
+feel_restaurants_have_taken_adequate_measures_customers_safe_during_COVID STRING,
+restaurants_50_percent_discounts_off_eatin_orders_during_COVID_would_eat_out_more STRING,
+restaurants_50_percent_infavour_of_tax STRING,
+age INT)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ',';

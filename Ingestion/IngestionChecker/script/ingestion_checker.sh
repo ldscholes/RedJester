@@ -13,7 +13,7 @@ fi
 
 
 # Call Standard Profile
-BASEDIR="~/redJester/Ingestion/IngestionChecker"
+BASEDIR="~/redJester/ingestion/ingestionChecker"
 HQL_DIR=${BASEDIR}/hql
 SCRIPT_DIR=${BASEDIR}/script
 

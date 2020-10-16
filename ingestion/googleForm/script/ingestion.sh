@@ -1,11 +1,11 @@
 #!/bin/bash
-# monthly_ingstion_update_csv.sh
+# ingstion.sh
 #
 ###############################################################################################################################
 # Call Standard Profile
 
 
-BASEDIR="~/redJester/ingestion/reddit"
+BASEDIR="~/redJester/ingestion/googleForm"
 HQL_DIR=${BASEDIR}/hql
 SCRIPT_DIR=${BASEDIR}/script
 DATA_DIR=${BASEDIR}/data
@@ -17,7 +17,7 @@ echo "DATA_DIR="$DATA_DIR
 
 
 HQL_NAME="create_main_table.hql"
-# beeline script to create empty main table if not existing
+# script to create empty main table if not existing
 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
 hive -f ${HQL_DIR}/${HQL_NAME}\
 

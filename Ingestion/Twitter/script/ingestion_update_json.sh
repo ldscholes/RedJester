@@ -5,7 +5,7 @@
 # Call Standard Profile
 
 
-BASEDIR="~/RedJester/Ingestion/Twitter"
+BASEDIR="~/redJester/ingestion/twitter"
 HQL_DIR=${BASEDIR}/hql
 SCRIPT_DIR=${BASEDIR}/script
 DATA_DIR=${BASEDIR}/data

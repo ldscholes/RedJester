@@ -5,7 +5,7 @@
 # Call Standard Profile
 
 
-BASEDIR="~/redJester/Ingestion/Reddit"
+BASEDIR="~/redJester/ingestion/reddit"
 HQL_DIR=${BASEDIR}/hql
 SCRIPT_DIR=${BASEDIR}/script
 DATA_DIR=${BASEDIR}/data
