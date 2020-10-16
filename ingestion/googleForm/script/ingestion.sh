@@ -31,7 +31,7 @@ hive -f ${HQL_DIR}/${HQL_NAME}\
  fi
 
 
-HQL_NAME="create_base_table_csv.hql"
+HQL_NAME="create_base_table.hql"
 # create empty base table for population
 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
 hive -f ${HQL_DIR}/${HQL_NAME}

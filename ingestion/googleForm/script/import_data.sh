@@ -12,4 +12,4 @@ wget --output-file="logs.csv" "https://docs.google.com/spreadsheets/d/1X34fwa922
 #Remove first line of file
 perl -pi -e '$_ = "" if ( $. == 1 );' downloaded_content.csv
 
-hdfs dfs -put ~~/redJester/ingestion/googleForm/data/downloaded_content.csv /apps/hive/warehouse/googleFormUpdate/
+hdfs dfs -put ~~/redJester/ingestion/googleForm/data/downloaded_content.csv /apps/hive/warehouse/google_form_update/
