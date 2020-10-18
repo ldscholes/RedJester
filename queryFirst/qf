@@ -1,0 +1,62 @@
+
+cat .art
+
+read -p "Enter your query: " input
+
+if [[ $input =~ ^[+-]?[0-9]+$ ]]; then
+echo "Input is an integer. exiting"
+exit 1
+
+elif [[ $input =~ ^[+-]?[0-9]+\.?[0-9]*$ ]]; then
+echo "Input is a float. exiting"
+exit 1
+
+else
+echo -n "Working >>>>"
+fi
+
+echo -n ">>>> Checking QF table exists >>>"
+
+hive -S -e "CREATE TABLE if NOT EXISTS queryFirst(query string,result string,time timestamp) ROW FORMAT DELIMITED FIELDS TERMINATED BY ','"
+
+echo ">>>> Returning last result:"
+
+shainput=$( echo "$input" | md5sum | awk '{print $1}')
+
+hive -S -e "select result, time from queryFirst where query = "\"$shainput"\" order by time DESC limit 1"
+
+read -p "Do you wish to run this query, and update the results: " confirm_lower
+confirm=${confirm_lower^^}
+
+if [[ $confirm = "YES" ]]; then
+result=`hive -S -e "\"$input"\" `
+else
+exit 1
+fi
+
+echo "result:"
+echo "$result"
+
+echo ">>>> Updating QF table"
+
+rm -f temp
+touch temp
+echo -n $shainput >> temp
+echo -n "," >> temp
+echo -n $result >> temp
+tr -d "\n\r" < temp
+echo -n "," >> temp
+date +"%Y-%m-%d %H:%M:%S" >> temp
+
+echo " "
+echo ">>>> Inserting data"
+echo " "
+
+hive -S -e "LOAD DATA LOCAL INPATH 'temp' INTO TABLE queryFirst"
+
+
+echo ">>>> Done"
+
+rm -f temp
+
+echo " "
