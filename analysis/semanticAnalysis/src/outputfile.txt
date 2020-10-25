@@ -1,0 +1,5 @@
+This is a great excellent awful sample sentence,1
+This is a great awful sample sentence.,0
+This is a awful sample sentence.,-1
+This is a great excellent sample sentence,2
+This is a gret excelent sample sentence.,1
