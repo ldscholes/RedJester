@@ -16,7 +16,7 @@ public class Checker {
 			if (newoutputFile.createNewFile()) {
 				System.out.println("output created " + newoutputFile.getName());
 			} else {
-				System.out.println("output file already exists.");
+				System.out.println("output file already exists. ");
 			}
 		
 			FileWriter outputFile = new FileWriter("outputfile.txt");

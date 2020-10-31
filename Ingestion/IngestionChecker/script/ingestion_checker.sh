@@ -27,7 +27,7 @@ HQL_NAME="create_main_table.hql"
 # create empty main table if not existing
 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
 cd ${HQL_DIR}
-hive -f ~/redJester/Ingestion/IngestionChecker/hql/create_main_table.hql
+hive -f ~/redJester/ingestion/ingestionChecker/hql/create_main_table.hql
 
 
  if [ $? -ne 0 ]
