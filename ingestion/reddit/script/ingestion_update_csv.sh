@@ -1,5 +1,5 @@
 #!/bin/bash
-# monthly_ingstion_update_json.sh
+# ingstion_update_csv.sh
 #
 ###############################################################################################################################
 # Call Standard Profile
@@ -17,7 +17,7 @@ echo "DATA_DIR="$DATA_DIR
 
 
 HQL_NAME="create_main_table.hql"
-# create empty main table if not existing
+# beeline script to create empty main table if not existing
 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
 hive -f ${HQL_DIR}/${HQL_NAME}\
 
@@ -31,7 +31,7 @@ hive -f ${HQL_DIR}/${HQL_NAME}\
  fi
 
 
-HQL_NAME="create_base_table_json.hql"
+HQL_NAME="create_base_table_csv.hql"
 # create empty base table for population
 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
 hive -f ${HQL_DIR}/${HQL_NAME}
