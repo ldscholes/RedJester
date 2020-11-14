@@ -1,5 +1,5 @@
 
-cat .art
+cat ~/RedJester/queryFirst/.art
 
 read -p "Enter your query: " input
 
