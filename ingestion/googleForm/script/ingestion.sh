@@ -5,7 +5,7 @@
 # Call Standard Profile
 
 
-BASEDIR="~/redJester/ingestion/googleForm"
+BASEDIR="~/RedJester/ingestion/googleForm"
 HQL_DIR=${BASEDIR}/hql
 SCRIPT_DIR=${BASEDIR}/script
 DATA_DIR=${BASEDIR}/data
@@ -19,7 +19,7 @@ echo "DATA_DIR="$DATA_DIR
 HQL_NAME="create_main_table.hql"
 # script to create empty main table if not existing
 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
-hive -f ${HQL_DIR}/${HQL_NAME}\
+hive -f ~/RedJester/ingestion/googleForm/hql/create_main_table.hql
 
 
  if [ $? -ne 0 ]
@@ -34,7 +34,7 @@ hive -f ${HQL_DIR}/${HQL_NAME}\
 HQL_NAME="create_base_table.hql"
 # create empty base table for population
 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
-hive -f ${HQL_DIR}/${HQL_NAME}
+hive -f ~/RedJester/ingestion/googleForm/hql/create_base_table.hql
 
  if [ $? -ne 0 ]
         then
@@ -45,12 +45,12 @@ hive -f ${HQL_DIR}/${HQL_NAME}
  fi
 
 
-${SCRIPT_DIR}/import_data.sh
+~/RedJester/ingestion/googleForm/script/import_data.sh
 
 HQL_NAME="update_main_table.hql"
 # update main table
 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
-hive -f ${HQL_DIR}/${HQL_NAME} 
+hive -f ~/RedJester/ingestion/googleForm/hql/update_main_table.hql 
 
  if [ $? -ne 0 ]
         then
