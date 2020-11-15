@@ -1,3 +1,5 @@
+ADD JAR hdfs:///user/root/json-serde-1.3.8-jar-with-dependencies.jar;
+set hive.support.sql11.reserved.keywords=false;
 CREATE TABLE IF NOT EXISTS tweets( 
 text STRING,
 entities STRUCT<
