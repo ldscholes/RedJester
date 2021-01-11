@@ -27,8 +27,8 @@ public class Checker {
 			File inputFile = new File("inputfile.txt");
 			Scanner myReader = new Scanner(inputFile);
 			while (myReader.hasNextLine()) {
-				String data = myReader.nextLine();
-
+				String data = myReader.nextLine().replace(",", "");
+				
 				int count = 0;
 				BufferedReader bufReader = new BufferedReader(new FileReader("positive-words.txt"));
 				ArrayList<String> listOfPos = new ArrayList<>();
