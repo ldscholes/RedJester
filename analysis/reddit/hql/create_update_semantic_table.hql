@@ -1,0 +1,1 @@
+CREATE TABLE if not exists reddit_semantic_update (body string, semantic_score int) row format delimited fields terminated by ','

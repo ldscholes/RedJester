@@ -1,0 +1,1 @@
+LOAD DATA LOCAL INPATH '~/redJester/analysis/semanticAnalysis/src/outputfile.txt' OVERWRITE INTO TABLE reddit_semantic_update

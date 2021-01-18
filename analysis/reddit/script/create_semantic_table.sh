@@ -42,9 +42,10 @@ hive -f ~/redJester/analysis/reddit/hql/update_delta_semantic_table.hql
                 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
  fi
 
-
-# semantic analysis
-hive -e "select body from reddit_comments' | sed 's/[\t]/,/g'  > ~/redJester/analysis/semanticAnalysis/src/inputfile.txt"
+QL_NAME="download_semantic_table.hql"
+# download semantic table
+echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
+hive -f ~/redJester/analysis/reddit/hql/download_semantic_table.hql | sed 's/[\t]/,/g'  > ~/redJester/analysis/semanticAnalysis/src/inputfile.txt
 
  if [ $? -ne 0 ]
         then
@@ -54,20 +55,70 @@ hive -e "select body from reddit_comments' | sed 's/[\t]/,/g'  > ~/redJester/ana
                 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
  fi
 
+# semantic analysis
 cd ~/redJester/analysis/semanticAnalysis/src/
 
 javac Checker.java
 
 java Checker
 
-hive -e "CREATE TABLE reddit_semantic_update (body string, semantic_score int,) row format delimited fields terminated by ','"
+HQL_NAME="create_update_semantic_table.hql"
+# create update table
+echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
+hive -f ~/redJester/analysis/reddit/hql/ceate_update_semantic_table.hql
 
-hive -e "LOAD DATA LOCAL INPATH '~/redJester/analysis/semanticAnalysis/src/outputfile.txt' OVERWRITE INTO TABLE reddit_semantic_score_update"
+ if [ $? -ne 0 ]
+        then
+                echo "--ERROR-- Script ${HQL_DIR}/${HQL_NAME} FAILED"
+                #exit 1
+        else
+                echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
+ fi
 
-hive -f "UPDATE reddit_semantic SET reddit_semantic.semantic_score = reddit_semantic_update.semantic_score FROM reddit_semantic INNER JOIN reddit_semantic_update.body = reddit_semantic.body"
+HQL_NAME="load_update_semantic_table.hql"
+# load update table
+echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
+hive -f ~/redJester/analysis/reddit/hql/load_update_semantic_table.hql
 
 
+ if [ $? -ne 0 ]
+        then
+                echo "--ERROR-- Script ${HQL_DIR}/${HQL_NAME} FAILED"
+                #exit 1
+        else
+                echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
+ fi
+
+HQL_NAME="update_semantic_table.hql"
+# load update table
+echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
+hive -f ~/redJester/analysis/reddit/hql/update_semantic_table.hql
 
 
+ if [ $? -ne 0 ]
+        then
+                echo "--ERROR-- Script ${HQL_DIR}/${HQL_NAME} FAILED"
+                #exit 1
+        else
+                echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
+ fi
+
+drop 
+
+HQL_NAME="drop_update_semantic_table.hql"
+# drop update table
+echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
+hive -f ~/redJester/analysis/reddit/hql/drop_update_semantic_table.hql
+
+
+ if [ $? -ne 0 ]
+        then
+                echo "--ERROR-- Script ${HQL_DIR}/${HQL_NAME} FAILED"
+                #exit 1
+        else
+                echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
+ fi
+
+drop 
 
 

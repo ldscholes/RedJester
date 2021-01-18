@@ -1,0 +1,1 @@
+DROP TABLE reddit_semantic_update;
