@@ -1,0 +1,1 @@
+select body, semantic_score from reddit_semantic
