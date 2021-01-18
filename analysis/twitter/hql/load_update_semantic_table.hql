@@ -1,0 +1,1 @@
+LOAD DATA LOCAL INPATH '~/redJester/analysis/semanticAnalysis/src/outputfile.txt' OVERWRITE INTO TABLE twitter_semantic_update

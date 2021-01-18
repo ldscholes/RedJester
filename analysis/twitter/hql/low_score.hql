@@ -1,0 +1,1 @@
+select text, score from tweets order by score asc limit 1;

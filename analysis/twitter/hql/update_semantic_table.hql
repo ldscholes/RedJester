@@ -1,0 +1,1 @@
+UPDATE twitter_semantic SET twitter_semantic.semantic_score = twitter_semantic_update.semantic_score FROM twitter_semantic INNER JOIN twitter_semantic_update.body = twitter_semantic.body
