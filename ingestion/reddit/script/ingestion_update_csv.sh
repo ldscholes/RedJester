@@ -60,3 +60,15 @@ hive -f ${HQL_DIR}/${HQL_NAME}
                 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
  fi
 
+HQL_NAME="drop_base_table.hql"
+# drop base table
+echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
+hive -f ${HQL_DIR}/${HQL_NAME} 
+
+ if [ $? -ne 0 ]
+        then
+                echo "--ERROR-- Script ${HQL_DIR}/${HQL_NAME} FAILED"
+                #exit 1
+        else
+                echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
+ fi

@@ -60,7 +60,7 @@ javac Checker.java
 
 java Checker
 
-hive -e "CREATE TABLE reddit_semantic_update (semantic_score int, body string) row format delimited fields terminated by ','"
+hive -e "CREATE TABLE reddit_semantic_update (body string, semantic_score int,) row format delimited fields terminated by ','"
 
 hive -e "LOAD DATA LOCAL INPATH '~/redJester/analysis/semanticAnalysis/src/outputfile.txt' OVERWRITE INTO TABLE reddit_semantic_score_update"
 

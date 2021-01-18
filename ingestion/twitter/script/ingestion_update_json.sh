@@ -65,3 +65,15 @@ hive -f ~/RedJester/ingestion/twitter/hql/update_main_table.hql
                 echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
  fi
 
+HQL_NAME="drop_base_table.hql"
+# drop base table
+echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Running..."
+hive -f ~/RedJester/ingestion/twitter/hql/drop_base_table.hql 
+
+ if [ $? -ne 0 ]
+        then
+                echo "--ERROR-- Script ${HQL_DIR}/${HQL_NAME} FAILED"
+                #exit 1
+        else
+                echo "--INFO-- Script ${HQL_DIR}/${HQL_NAME} Completed Successfully"
+ fi
