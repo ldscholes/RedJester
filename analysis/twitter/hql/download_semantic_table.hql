@@ -1,1 +1,1 @@
-select text from twitter_semantic
+select text, semantic_score from twitter_semantic
