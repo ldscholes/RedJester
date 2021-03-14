@@ -21,9 +21,6 @@ public class Checker {
 		
 			FileWriter outputFile = new FileWriter("outputfile.txt");
 			
-			
-			
-				
 			File inputFile = new File("inputfile.txt");
 			Scanner myReader = new Scanner(inputFile);
 			while (myReader.hasNextLine()) {
@@ -51,7 +48,11 @@ public class Checker {
 				}
 
 				bufReader1.close();
-
+				
+				
+				String twoPrevWord = new String();
+				String onePrevWord = new String();
+				
 				java.lang.String[] words = data.split("\\s+");
 				ArrayList<String> sentance = new ArrayList<>();
 				for (int i = 0; i < words.length; i++) {
@@ -61,11 +62,22 @@ public class Checker {
 
 				for (String s1 : sentance) {
 					if (listOfNeg.contains(s1)) {
-						count--;
+						if (twoPrevWord.equals("not") || onePrevWord.equals("not")) {
+							count ++;
+						} else {
+							count--;
+						}
 					}
 					if (listOfPos.contains(s1)) {
-						count++;
-					}
+						if (twoPrevWord.equals("not") || onePrevWord.equals("not")) {
+							count --;
+						} else {
+							count++;
+						}
+
+				}
+					twoPrevWord = onePrevWord.toLowerCase();
+					onePrevWord = s1.toLowerCase();
 				}
 
 				System.out.println(data+","+count);
