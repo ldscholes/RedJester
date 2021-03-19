@@ -5,7 +5,7 @@ Package that allows for the ingestion of Reddit, Twitter & GoogleForms data, mac
 
 Pre-requisites
 --------------
-A Hadoop installed and a working cluster
+Hadoop installed and a working cluster
 
 Getting Started
 ---------------
